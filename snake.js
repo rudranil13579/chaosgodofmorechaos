@@ -67,12 +67,11 @@ if (snakeArr[0].x === food.x && snakeArr[0].y === food.y) {
         food = { x: Math.round(1 + 17 * Math.random()), y: Math.round(1 + 17 * Math.random()) };
 
         // Check for collisions with the snake
+        w = 1; // Assume no collision initially
         for (let i = 0; i < snakeArr.length; i++) {
             if (snakeArr[i].x === food.x && snakeArr[i].y === food.y) {
-                w = 1;
+                w = 0; // Reset w to 0 if collision is found
                 break; // Exit the loop if collision is found
-            } else {
-                w = 0;
             }
         }
     }

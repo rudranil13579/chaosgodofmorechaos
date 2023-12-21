@@ -1,10 +1,10 @@
 let direction = { x: 0, y: 0 };
 let food = {x: 6,y:7};
 const board = document.getElementById("container")
-const foods = new Audio('food.mp3');
-const moves = new Audio('move.mp3');
-const musics = new Audio('music.mp3');
-const ggbois = new Audio('gameover.mp3');
+const foods = new Audio('./assets/food.mp3');
+const moves = new Audio('./assets/move.mp3');
+const musics = new Audio('./assets/music.mp3');
+const ggbois = new Audio('./assets/gameover.mp3');
 let speed = 5;
 let score= 0;
 let lastPaintTime = 0;
@@ -64,7 +64,7 @@ function gameEngine() {
         while (w==0) {
             food ={x: Math.round(1 + 17*Math.random()),y: Math.round(1 + 17*Math.random())};
             for (let i = 1; i < snakeArr.length; i++) {
-                if (snakeArr[i].x==food[0].x && snakeArr[i].y==food[0].y) {
+                if (snakeArr[i].x==food.x && snakeArr[i].y==food.y) {
                     w=1;
                 }
                 else{

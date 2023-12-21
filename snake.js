@@ -54,27 +54,30 @@ function gameEngine() {
     }
 
     //if snake eat
-    if (snakeArr[0].x===food.x && snakeArr[0].y===food.y) {
-        foods.play();
-        snakeArr.unshift({x: snakeArr[0].x + direction.x, y: snakeArr[0].y + direction.y});
-        score+=1
-        scoreb.innerHTML ="score:" + score;
+// Inside the if statement where the snake eats the food
+if (snakeArr[0].x === food.x && snakeArr[0].y === food.y) {
+    foods.play();
+    snakeArr.unshift({ x: snakeArr[0].x + direction.x, y: snakeArr[0].y + direction.y });
+    score += 1;
+    scoreb.innerHTML = "score:" + score;
 
-        let w=0;
-        while (w==0) {
-            food ={x: Math.round(1 + 17*Math.random()),y: Math.round(1 + 17*Math.random())};
-            for (let i = 1; i < snakeArr.length; i++) {
-                if (snakeArr[i].x==food.x && snakeArr[i].y==food.y) {
-                    w=1;
-                }
-                else{
-                    w=0;
-                }
+    let w = 0;
+    while (w === 0) {
+        // Generate new food position
+        food = { x: Math.round(1 + 17 * Math.random()), y: Math.round(1 + 17 * Math.random()) };
+
+        // Check for collisions with the snake
+        for (let i = 0; i < snakeArr.length; i++) {
+            if (snakeArr[i].x === food.x && snakeArr[i].y === food.y) {
+                w = 1;
+                break; // Exit the loop if collision is found
+            } else {
+                w = 0;
             }
         }
-        
-        
     }
+}
+
 
 
     //moving the snake

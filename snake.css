@@ -1,5 +1,5 @@
 .body{
-    background: url(..snake_bg.png);
+    background: url('./assets/snake_bg.png');
     min-height: auto;
     min-width: auto;
     display: flex;
